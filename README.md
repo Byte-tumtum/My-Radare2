@@ -27,7 +27,3 @@ $hx        # 64-byte hexdump
 List all aliases with `$*`; inspect one with `$df?`.
 
 Note: the alias is `$M` (not `$main`) — r2 reserves `$<name>` for "seek to flag <name>", so an alias literally named `$main` collides with that.
-
-## Notes
-
-Created for use with radare2 on Omarchy (Arch), r2 v6.2.x line.
