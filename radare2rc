@@ -1,0 +1,38 @@
+# radare2 6.2.3 user config
+# Edit me: ~/.radare2rc
+# Verify any var with:  r2 -2qc 'e <var>' /bin/echo
+
+# ---- UI / colors ----
+e scr.color=3              # 3 = 256-color except background
+e scr.utf8=true
+e scr.utf8.curvy=true      # nicer block-lines in disasm/visual
+e scr.prompt=true
+
+# ---- Disassembly ----
+e asm.syntax=intel
+e asm.pseudo=true          # pseudo-source when available
+e asm.describe=true        # annotate instructions
+e asm.bytes=true
+e asm.comments=true
+e asm.lines=true
+e asm.tabs=8
+e asm.cmt.calls=true       # annotate call references
+e asm.emu=true             # use an esil emulator to resolve values
+e asm.lines.call=true      # draw call edges in visual mode
+
+# ---- Analysis ----
+e anal.hasnext=true
+e anal.jmp.above=true
+e anal.depth=128
+
+# ---- Hex / search / io ----
+e hex.cols=16
+e search.in=io.maps
+e io.cache=true            # writes apply to the in-memory cache
+e bin.cache=true
+e bin.relocs.apply=true    # resolve relocations at load time
+
+# ---- Editor / dirs ----
+e cfg.editor=vi
+# load 0DE5-style profile
+. /home/tumtum/.config/radare2/profile.rr2

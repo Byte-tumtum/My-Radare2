@@ -1,0 +1,33 @@
+# 0DE5-style radare2 profile (profile.rr2)
+# r2 aliases -- syntax: $name=command (no spaces around '='), single commands only.
+# Load:   . /home/tumtum/.config/radare2/profile.rr2   (hooked via ~/.radare2rc)
+# Inspect: $* (all aliases),  $df? (one)
+# Typical session:  $aa  ->  $main  ->  $df / $op / $dec / $hx / $str
+
+# --- analysis / navigation ---
+$aa=aaa                 # full analysis (run once after opening a file)
+$as=aa                  # lightweight analysis
+$entry=s entry0
+$M=s main               # after analysis, jump to main's flag (name must not be exactly $main; r2 hijacks that)
+
+# --- disassembly ---
+$df=pdf                 # disassemble function at cursor
+$op=pd 8                # disassemble 8 instructions at cursor
+$lin=pdl                # disassemble, linear
+$dec=pdc                # pseudo-C decompiler (built-in)
+
+# --- data views ---
+$hx=px 64               # 64-byte hexdump at cursor
+$str=ps                 # string at cursor
+
+# --- inspection ---
+$if=iI                  # file & ELF info
+$syms=is                # symbol list
+$imps=ii                # imports
+$reloc=ir               # relocations
+$funcs=afl              # all functions
+$args=afvd              # current function args / vars
+$xref=axt               # what references the current address
+
+# --- misc ---
+$q=q                    # quit
